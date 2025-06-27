@@ -1,0 +1,155 @@
+/* === Base Styling === */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0f1a;
+  color: #e0f7fa;
+  margin: 0;
+  scroll-behavior: smooth;
+  background-image: radial-gradient(circle at 30% 30%, #0e1b32, #0a0f1a 80%);
+  position: relative;
+  z-index: 1;
+}
+
+/* === Animated Background Overlay === */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.07) 1px, transparent 1px),
+              radial-gradient(circle, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: floatBG 60s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes floatBG {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 1000px 1000px, -1000px -1000px;
+  }
+}
+
+/* === Hero Section === */
+.hero {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 3rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.05) 1%, transparent 40%);
+  animation: pulse 5s infinite ease-in-out;
+  z-index: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+}
+
+.hero .profile-pic {
+  width: 130px;
+  border-radius: 50%;
+  border: 3px solid #00ffff;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* === Typography === */
+h1 span {
+  color: #00e6e6;
+}
+h2 {
+  color: #00ffff;
+  border-bottom: 2px solid #00ffff33;
+  padding-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* === Main Layout === */
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+}
+
+section {
+  margin-bottom: 4rem;
+  animation: fadeInUp 1s ease-out;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Project Section === */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #111827;
+  border: 1px solid #00ffff33;
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 10px #00ffff33;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #00ffff88;
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* === Links === */
+a {
+  color: #00e6e6;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* === Contact Section === */
+.contact a {
+  font-weight: bold;
+}
+
+.fa-envelope, .fa-linkedin {
+  margin-right: 6px;
+  color: #00ffff;
+}
+
+/* === Footer === */
+footer {
+  background-color: #0c192c;
+  text-align: center;
+  padding: 1rem;
+  color: #888;
+  border-top: 1px solid #00ffff22;
+}
